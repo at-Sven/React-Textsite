@@ -10,6 +10,16 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <span>Heute ist {new Date().getDay() === 1 ? 'Montag' : 'nicht Montag'}</span>
+        <ul>
+          {['Tim', 'Struppi'].map((name) => (
+            <li key={name}>{name}</li>
+          ))}
+        </ul>
+        <input type="range" min={0} max={100} />
+
+
+
         <a
           className="App-link"
           href="https://reactjs.org"
