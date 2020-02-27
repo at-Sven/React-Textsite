@@ -1,36 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>Heute ist {new Date().getDay() === 1 ? 'Montag' : 'nicht Montag'}</span>
-        <ul>
-          {['Tim', 'Struppi'].map((name) => (
-            <li key={name}>{name}</li>
-          ))}
-        </ul>
-        <input type="range" min={0} max={100} />
+export default class App extends React.Component<{}, { coins: object[] }> {
+
+  constructor(props: any) {
+    super(props);
+    this.state = { coins: [] };
+  }
 
 
+  componentDidMount() {
+    axios.get('https://api.coingecko.com/api/v3/coins')
+      .then((res) => {
+        this.setState({ coins: res.data });
+      })
+  }
 
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    return (
+      <div className="App" >
+        <header className="App-header">
+
+          <span>Heute ist {new Date().getDay() === 5 ? 'Freitag, WUHO!' : 'nicht Freitag'}</span>
+
+          <div className="content">
+            {this.state.coins.map((coin: any) => (
+              <div key={coin.id} className="coinFrame">
+                <img src={coin.image.small} alt="" />
+                <p>{coin.name} ({coin.symbol})</p>
+              </div>
+            ))}
+          </div>
+        </header>
+      </div>
+    );
+  }
 }
-
-export default App;

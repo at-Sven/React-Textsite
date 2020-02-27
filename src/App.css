@@ -7,10 +7,9 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* @media (prefers-reduced-motion: no-preference) { */
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
 }
 
 .App-header {
@@ -32,7 +31,20 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-content: stretch;
+  flex-wrap: wrap;
+}
+
+.coinFrame {
+  line-height: 0px;
+  margin: 30px;
 }
