@@ -13,6 +13,9 @@
 }
 
 .App-header {
+  background-image: url(assets/bg.jpg);
+  background-attachment: fixed;
+  background-size: cover;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -37,14 +40,47 @@
   }
 }
 
+#isItFryday {
+  font-size: 15px;
+}
+
 .content {
+  background-color: rgba(40, 44, 52, 0.9);
   display: flex;
   justify-content: space-between;
   align-content: stretch;
   flex-wrap: wrap;
+  width: 80%;
 }
 
 .coinFrame {
   line-height: 0px;
-  margin: 30px;
+  margin: 5px 15px;
+  padding: 10px;
+
+}
+
+.coinFrame:hover {
+  background-color: #3c4b68e6;
+  cursor: pointer;
+}
+
+.marketInfos {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  grid-template-rows: auto;
+}
+
+.coinDetail {
+  background-color: rgba(40, 44, 52, 0.95);
+  width: 60%;
+  border: rgb(197, 194, 194) 3px solid;
+}
+
+#highest {
+  color: greenyellow;
+}
+
+#lowest {
+  color: red;
 }
