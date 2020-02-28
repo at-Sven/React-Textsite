@@ -55,7 +55,6 @@
 
 .coinFrame {
   line-height: 0px;
-  margin: 5px 15px;
   padding: 10px;
 
 }
@@ -73,8 +72,10 @@
 
 .coinDetail {
   background-color: rgba(40, 44, 52, 0.95);
+  padding: 50px 200px;
   width: 60%;
-  border: rgb(197, 194, 194) 3px solid;
+  margin: 20px;
+  border: rgb(197, 194, 194) 2px solid;
 }
 
 #highest {
