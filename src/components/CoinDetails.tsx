@@ -1,16 +1,23 @@
 import React from 'react';
 import axios from 'axios';
-import './App.css';
+import '../App.css';
+import Coin from '../Coin';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-export default class CoinDetails extends React.Component<any, any> {
+interface Props extends RouteComponentProps<{ id: string }> { }
 
-    coin: string = this.props.coinID;
+interface State {
+    coins: Coin
+}
+
+class CoinDetails extends React.Component<Props, State> {
 
     componentDidMount() {
-        axios.get('https://api.coingecko.com/api/v3/coins/bitcoin')
+        axios.get(`https://api.coingecko.com/api/v3/coins/${this.props.match.params.id}`)
+            // axios.get(`https://api.coingecko.com/api/v3/coins/bitcoin`)
             .then((res) => {
                 this.setState({ coins: res.data });
-                console.log(this.coin);
+                console.log(this.state.coins);
             })
     }
 
@@ -60,3 +67,4 @@ export default class CoinDetails extends React.Component<any, any> {
         );
     }
 }
+export default withRouter(CoinDetails)
